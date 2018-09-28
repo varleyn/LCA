@@ -124,8 +124,8 @@ public class BinaryTreeTest {
 	@Test
 	public void oneNodeIsRoot(){
                                               //          a         
-		BTNode a = new BTNode();             //            \               
-		BTNode b = new BTNode();             //             \
+		BTNode a = new BTNode();     //            \               
+		BTNode b = new BTNode();     //             \
                                             //               \
         a.setRight(b);                      //                b
         
