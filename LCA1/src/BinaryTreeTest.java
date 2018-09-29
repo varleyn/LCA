@@ -216,5 +216,29 @@ public class BinaryTreeTest {
 		
 	}
 	
+	
+	/*
+	 * Test case where both nodes passed to lca method are null.
+	 * Should return null.
+	 */
+	@Test
+	public void bothNodesNull(){
+		
+		BTNode a = new BTNode();   //                            
+		BTNode b = new BTNode();   //                   a                              
+		BTNode c = new BTNode();   //                 /   \ 
+		BTNode d = new BTNode();   //                /     \
+		                           //               /       \
+		a.setLeft(b)  ;            //              b         c
+		a.setRight(c);             //               \         
+		b.setRight(d) ;            //                \         
+		                           //                 d 
+		
+		BTNode result = BinaryTree.lca(a, null, null);
+		assertEquals(null, result);
+		
+		
+	}
+	
 
 }
