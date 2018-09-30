@@ -1,4 +1,25 @@
+//TODO:  Refine lca algorithm to be able handle cases such as the following (1st test case):
+                                 //                   a         
+		                         //                 /   \               
+		                         //                /     \
+		                         //               /       \             lca(a, e, g)
+		                         //              b         c
+		                         //               \       /  \
+		                         //                \     /    \
+		                         //                 d   e      f
+		                         //                           /
+		                         //                          /
+		                         //                         g
 
+// where one of the nodes is below (at a deeper level than) the parent (i.e. lowest ancestor) of the other node.
+// Using the current algorithm, node g never gets visited. Upon visiting node e, the active recursive call returns 
+// c because the lowest common ancestor of e and g could not be any lower than the lowest ancestor of e (which is c).
+// Then because g has never been seen, the algorithm wrongly assumes it is not present in the tree and returns null
+// as the lca instead of g.
+//
+// One possible solution would be (in the case where only one of the nodes has been visted at the end) to search the tree below 
+// the lowest ancestor returned for the other node
+	
 public class BinaryTree {
 	
 	public static Boolean n1Present = false;  //will be set to true once node n1 has been seen
