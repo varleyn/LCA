@@ -10,9 +10,15 @@ public class BinaryTree {
 		
 		if (n1Present && n2Present){
 			
+			n1Present = false;   //reset n1Present and n2Present for next time 
+			n2Present = false;   //lca is called.
+			
 			return result;
 			
 		}
+		
+		n1Present = false;   //reset n1Present and n2Present for next time 
+		n2Present = false;   //lca is called.
 		
 		return null;
 	}
