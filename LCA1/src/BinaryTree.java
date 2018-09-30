@@ -1,14 +1,24 @@
 
 public class BinaryTree {
 	
-	//TODO: This algorithm will only work assuming both the nodes
-	//      n1 and n2 are contained in the binary tree. If, for e.g,
-	//      node n1 is not in the tree beginning at root but node
-	//      n2 is, this algorithm will return the lowest ancestor (i.e parent) 
-	//      of n2. As nodes n1 and n2 clearly have no common ancestors in this 
-	//      situation, null should be returned.
-	//         Fix this!!!
+	public static Boolean n1Present = false;  //will be set to true once node n1 has been seen
+	public static Boolean n2Present = false;  //will be set to true once node n2 has been seen
+	
 	public static BTNode lca(BTNode root, BTNode n1, BTNode n2){
+		
+		BTNode result = lca_helper(root, n1, n2);
+		
+		if (n1Present && n2Present){
+			
+			return result;
+			
+		}
+		
+		return null;
+	}
+	
+	
+	public static BTNode lca_helper(BTNode root, BTNode n1, BTNode n2){
 		
 		if(root == null) return null;
 		
@@ -17,14 +27,21 @@ public class BinaryTree {
 			return null;
 		}
 		
-		if(    (root.getLeft() == n1)  ||  (root.getLeft() == n2)
-		    || (root.getRight() == n1) ||  (root.getRight() == n2)){
-			
+		
+		if( (root.getLeft() == n1)  ||  (root.getRight() == n1) ){
+		    n1Present = true;
 			return root;
 		}
 		
-		BTNode left = BinaryTree.lca(root.getLeft(), n1, n2);
-		BTNode right = BinaryTree.lca(root.getRight(), n1, n2);
+		if( (root.getLeft() == n2)  ||  (root.getRight() == n2) ){
+		    n2Present = true;
+			return root;
+		}
+		
+		
+		
+		BTNode left = BinaryTree.lca_helper(root.getLeft(), n1, n2);
+		BTNode right = BinaryTree.lca_helper(root.getRight(), n1, n2);
 		
 		if( (left != null) && (right != null)) return root;
 		if(left == null) return right;
