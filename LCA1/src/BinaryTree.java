@@ -11,7 +11,7 @@
 		                         //                          /
 		                         //                         g
 
-// where one of the nodes is below (at a deeper level than) the parent (i.e. lowest ancestor) of the other node.
+// where one of the nodes is below the parent (i.e. lowest ancestor) of the other node.
 // Using the current algorithm, node g never gets visited. Upon visiting node e, the active recursive call returns 
 // c because the lowest common ancestor of e and g could not be any lower than the lowest ancestor of e (which is c).
 // Then because g has never been seen, the algorithm wrongly assumes it is not present in the tree and returns null
@@ -38,14 +38,37 @@ public class BinaryTree {
 			
 		}
 		
+		if(n1Present && !n2Present){  //if n1 was found but not n2, check under result returned for n2
+			                          //and if present return result. Otherwise, return null
+			
+			if(search(result, n2)){
+				return result;
+			}
+			
+			else{ 
+				return null;
+			}
+		}
+		
+		if(n2Present && !n1Present){
+			
+			if(search(result, n1)){
+				return result;
+			}
+			
+			else{
+				return null;
+			}
+		}
+		
 		n1Present = false;   //reset n1Present and n2Present for next time 
 		n2Present = false;   //lca is called.
 		
-		return null;
+		return null;         //if(!n1Present && !n2Present)
 	}
 	
 	
-	public static BTNode lca_helper(BTNode root, BTNode n1, BTNode n2){
+	private static BTNode lca_helper(BTNode root, BTNode n1, BTNode n2){
 		
 		if(root == null) return null;
 		
@@ -75,6 +98,15 @@ public class BinaryTree {
 		if(right == null) return left;
 		
 		return null;
+		
+	}
+	
+	
+	private static Boolean search(BTNode root, BTNode node){
+		
+		if(root == node)   return true;
+		if(root == null)   return null;
+		return (search(root.getLeft(), node) || search(root.getRight(), node));
 		
 	}
 
