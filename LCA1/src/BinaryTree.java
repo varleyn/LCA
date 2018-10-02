@@ -41,7 +41,7 @@ public class BinaryTree {
 		if(n1Present && !n2Present){  //if n1 was found but not n2, check under result returned for n2
 			                          //and if present return result. Otherwise, return null
 			
-			if(search(result, n2)){
+			if( search(result.getLeft(), n2) || search(result.getRight(), n2) ){
 				return result;
 			}
 			
@@ -52,7 +52,7 @@ public class BinaryTree {
 		
 		if(n2Present && !n1Present){
 			
-			if(search(result, n1)){
+			if( search(result.getLeft(), n1) || search(result.getRight(), n1) ){
 				return result;
 			}
 			
