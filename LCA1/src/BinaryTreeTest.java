@@ -240,5 +240,24 @@ public class BinaryTreeTest {
 		
 	}
 	
+	
+	/*
+	 * Testing search method
+	 */
+	@Test
+	public void testSearch(){
+		
+		BTNode c = new BTNode();
+		BTNode e = new BTNode();
+		BTNode f = new BTNode();
+		BTNode g = new BTNode();
+		
+		c.setLeft(e);
+		c.setRight(f);
+		f.setLeft(g);
+		
+		assertTrue((BinaryTree.search(c.getLeft(), g)) || (BinaryTree.search(c.getRight(), g)));
+	}
+	
 
 }

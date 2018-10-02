@@ -42,21 +42,30 @@ public class BinaryTree {
 			                          //and if present return result. Otherwise, return null
 			
 			if( search(result.getLeft(), n2) || search(result.getRight(), n2) ){
-				return result;
+				
+				n1Present = false;   //reset n1Present for next time
+				return result;       
 			}
 			
 			else{ 
+				
+				n1Present = false;   //reset n1Present for next time
 				return null;
 			}
+			
 		}
 		
 		if(n2Present && !n1Present){
 			
 			if( search(result.getLeft(), n1) || search(result.getRight(), n1) ){
+				
+				n2Present = false;     //reset n2Present for next time
 				return result;
 			}
 			
 			else{
+				
+				n2Present = false;     //reset n2Present for next time
 				return null;
 			}
 		}
@@ -102,10 +111,10 @@ public class BinaryTree {
 	}
 	
 	
-	private static Boolean search(BTNode root, BTNode node){
+	public static Boolean search(BTNode root, BTNode node){
 		
+		if(root == null)   return false;
 		if(root == node)   return true;
-		if(root == null)   return null;
 		return (search(root.getLeft(), node) || search(root.getRight(), node));
 		
 	}
