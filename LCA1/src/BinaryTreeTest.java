@@ -4,6 +4,31 @@ import org.junit.Test;
 
 
 public class BinaryTreeTest {
+	
+	/*
+	 * Tests that the lca method returns the correct lowest common ancestor
+	 * when both of the specified nodes are present in the given binary tree
+	 */
+	@Test
+	public void bothNodesPresentTest1() {
+		
+		BTNode a = new BTNode();   //                   a         
+		BTNode b = new BTNode();   //                 /   \               
+		BTNode c = new BTNode();   //                /     \
+		BTNode d = new BTNode();   //               /       \
+		                           //              b         c
+		                           //               \       
+		                           //                \    
+		                           //                 d        
+		a.setLeft(b);              //                          
+		a.setRight(c);             //                         
+		b.setRight(d);             //                         
+		
+		
+		BTNode result = BinaryTree.lca(a, d, c); //result is assigned the lca of nodes e and g
+		                              //in the binary tree with root a
+		assertEquals(a, result);
+	}
 
 	
 	/*
@@ -11,7 +36,7 @@ public class BinaryTreeTest {
 	 * when both of the specified nodes are present in the given binary tree
 	 */
 	@Test
-	public void bothNodesPresentTest() {
+	public void bothNodesPresentTest2() {
 		
 		BTNode a = new BTNode();   //                   a         
 		BTNode b = new BTNode();   //                 /   \               
@@ -29,6 +54,33 @@ public class BinaryTreeTest {
 		f.setLeft(g);
 		
 		BTNode result = BinaryTree.lca(a, e, g); //result is assigned the lca of nodes e and g
+		                              //in the binary tree with root a
+		assertEquals(c, result);
+	}
+	
+	/*
+	 * Tests that the lca method returns the correct lowest common ancestor
+	 * when both of the specified nodes are present in the given binary tree
+	 */
+	@Test
+	public void bothNodesPresentTest3() {
+		
+		BTNode a = new BTNode();   //                   a         
+		BTNode b = new BTNode();   //                 /   \               
+		BTNode c = new BTNode();   //                /     \
+		BTNode d = new BTNode();   //               /       \
+		BTNode e = new BTNode();   //              b         c
+		BTNode f = new BTNode();   //               \       /  \
+		BTNode g = new BTNode();   //                \     /    \
+		                           //                 d   e      f
+		a.setLeft(b);              //                           /
+		a.setRight(c);             //                          /
+		b.setRight(d);             //                         g
+		c.setLeft(e);              //
+		c.setRight(f);
+		f.setLeft(g);
+		
+		BTNode result = BinaryTree.lca(a, g, e); //result is assigned the lca of nodes e and g
 		                              //in the binary tree with root a
 		assertEquals(c, result);
 	}
