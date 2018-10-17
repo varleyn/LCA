@@ -57,7 +57,7 @@ public class DigraphTest {
 			                           //                 3         4
 			                           //                          /
 			                           //                         /
-		                               //                        5
+		                                   //                        5
 			                         
 			
 			
@@ -133,11 +133,11 @@ public class DigraphTest {
 		@Test
 		public void oneNodeIsRoot(){
 			
-			Digraph myDigraph = new Digraph(2);  //           0                                      //          a         
+			Digraph myDigraph = new Digraph(2);  //           0                                              
 			myDigraph.addEdge(0, 1);             //            \               
 			                                     //             \
-	                                            //               \
-	                                            //                1
+	                                                    //               \
+	                                                    //                1
 	        
 	        int result = myDigraph.lca(0, 1);
 	        assertEquals(0,result);
@@ -160,7 +160,7 @@ public class DigraphTest {
 			myDigraph.addEdge(1, 3);   //                 /   \ 
 			                           //                /     \
 			                           //               /       \
-		                               //              1         2
+		                                   //              1         2
 			                           //               \         
 			                           //                \         
 			                           //                 3 
@@ -200,7 +200,7 @@ public class DigraphTest {
 			myDigraph.addEdge(1, 3);   //                 /   \ 
 			                           //                /     \
 			                           //               /       \
-		                               //              1         2
+		                                   //              1         2
 			                           //               \         
 			                           //                \         
 			                           //                 3 
@@ -252,7 +252,7 @@ public class DigraphTest {
 			myDigraph.addEdge(1, 3);   //                 /   \ 
 			                           //                /     \
 			                           //               /       \
-		                               //              1         2
+		                                   //              1         2
 			                           //               \         
 			                           //                \         
 			                           //                 3 
