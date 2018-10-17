@@ -1,3 +1,25 @@
+/*
+ * Definition of LCA in a DAG:
+ *                                Define the height of a vertex v in a DAG to be the length of the longest path from
+ *                                the root to v. Among the vertices that are common ancestors of v and w, the one 
+ *                                with the greatest height is the LCA of v and w.   
+ *                                
+ *                                   Thus, for e.g., to find LCA(1,2) in the DAG 0->1, 0->2, 1->2, we note that the
+ *                                   common ancestors of 1 and 2 are 0 (height=0) and 1 (height = 1). Therefore
+ *                                   LCA = 1.                                
+ *                                        
+ *                                                 
+ *                                        
+ *                                
+ *                                
+ */
+
+
+
+
+
+
+
 import java.util.*;
 
 /*An instance of Digraph represents a directed graph. 

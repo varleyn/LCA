@@ -257,12 +257,39 @@ public class DigraphTest {
 			                           //                \         
 			                           //                 3 
 			
-			int result = myDigraph.lca(a, null, null);
+			int result = myDigraph.lca(null, null);
 			assertEquals(null, result);
 			
 			
 		}
 		
-	
-
-}
+		
+		
+		/*
+		 * DAG Test 1
+		 */
+		@Test
+		public void initialDAGTest(){
+			
+		Digraph myDigraph = new Digraph(8);
+		myDigraph.addEdge(0, 1);                //                             0       
+		myDigraph.addEdge(0, 2);                //                          /  |  \                    
+		myDigraph.addEdge(0, 3);                //                         /   |   \
+		myDigraph.addEdge(1, 4);                //                        /    |    \       
+		myDigraph.addEdge(2, 4);                //                       /     |     \             
+		myDigraph.addEdge(3, 4);                //                      1      2      3          
+		myDigraph.addEdge(4, 5);                //                      \      |     /  
+		myDigraph.addEdge(4, 6);                //                       \     |    /         
+		myDigraph.addEdge(4, 7);                //                        \    |   /
+                                                //                         \   |  /
+		                                        //                          \  | /
+		                                        //                             4
+	    int result = myDigraph.lca(1, 7);       //                           / | \
+	    assertEquals(1, result);                //                          /  |  \
+		                                        //                         /   |   \
+		                                        //                        /    |    \
+		                                        //                       5     6     7
+		
+		
+	   }
+}		
