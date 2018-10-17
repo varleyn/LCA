@@ -9,7 +9,7 @@
  *                                   LCA = 1.                                
  *                                        
  *                                                 
- *                                        
+ *   Note: We will assume vertex 0 is the root.                                     
  *                                
  *                                
  */
