@@ -15,7 +15,7 @@ public class DigraphTest {
 		@Test
 		public void bothNodesPresentTest() {
 			
-			Digraph myDigraph = new Digraph(7);   //                   0         
+			Digraph myDigraph = new Digraph(7,0);   //                   0         
 			myDigraph.addEdge(0, 1);              //                 /   \               
 			myDigraph.addEdge(0, 2);              //                /     \
 			myDigraph.addEdge(1, 3);              //               /       \
@@ -46,7 +46,7 @@ public class DigraphTest {
 		@Test
 		public void firstNodeAbsent(){
 			
-			Digraph myDigraph = new Digraph(6);                                         
+			Digraph myDigraph = new Digraph(6,0);                                         
 			myDigraph.addEdge(0, 1);   //                   0                              
 			myDigraph.addEdge(0, 2);   //                 /   \ 
 			myDigraph.addEdge(1, 3);   //                /     \
@@ -78,7 +78,7 @@ public class DigraphTest {
 		@Test
 		public void secondNodeAbsent(){
 			
-			Digraph myDigraph = new Digraph(6);
+			Digraph myDigraph = new Digraph(6,0);
 			myDigraph.addEdge(0, 1);   //                   0         
 			myDigraph.addEdge(0, 2);   //                 /   \               
 			myDigraph.addEdge(1, 3);   //                /     \
@@ -104,7 +104,7 @@ public class DigraphTest {
 		@Test
 		public void bothNodesAbsent(){
 			
-			Digraph myDigraph = new Digraph(5);
+			Digraph myDigraph = new Digraph(5,0);
 			myDigraph.addEdge(0, 1);   //                   0         
 			myDigraph.addEdge(0, 2);   //                 /   \               
 			myDigraph.addEdge(2, 3);   //                /     \
@@ -133,7 +133,7 @@ public class DigraphTest {
 		@Test
 		public void oneNodeIsRoot(){
 			
-			Digraph myDigraph = new Digraph(2);  //           0                                              
+			Digraph myDigraph = new Digraph(2,0);  //           0                                              
 			myDigraph.addEdge(0, 1);             //            \               
 			                                     //             \
 	                                                    //               \
@@ -154,7 +154,7 @@ public class DigraphTest {
 		@Test
 		public void lcaSameNode(){
 			
-			Digraph myDigraph = new Digraph(4);
+			Digraph myDigraph = new Digraph(4,0);
 			myDigraph.addEdge(0, 1);   //                            
 			myDigraph.addEdge(0, 2);   //                   0                              
 			myDigraph.addEdge(1, 3);   //                 /   \ 
@@ -194,7 +194,7 @@ public class DigraphTest {
 		@Test
 		public void firstNodeIsNull(){
 			
-			Digraph myDigraph = new Digraph(4);
+			Digraph myDigraph = new Digraph(4,0);
 			myDigraph.addEdge(0, 1);   //                            
 			myDigraph.addEdge(0, 2);   //                   0                              
 			myDigraph.addEdge(1, 3);   //                 /   \ 
@@ -219,7 +219,7 @@ public class DigraphTest {
 		@Test
 		public void secondNodeIsNull(){
 			
-			Digraph myDigraph = new Digraph(4);
+			Digraph myDigraph = new Digraph(4,0);
 			myDigraph.addEdge(0, 1);   //                            
 			myDigraph.addEdge(0, 2);   //                   0                              
 			myDigraph.addEdge(1, 3);   //                 /   \ 
@@ -246,7 +246,7 @@ public class DigraphTest {
 		@Test
 		public void bothNodesNull(){
 			
-			Digraph myDigraph = new Digraph(4);
+			Digraph myDigraph = new Digraph(4,0);
 			myDigraph.addEdge(0, 1);   //                            
 			myDigraph.addEdge(0, 2);   //                   0                              
 			myDigraph.addEdge(1, 3);   //                 /   \ 
@@ -271,7 +271,7 @@ public class DigraphTest {
 		@Test
 		public void initialDAGTest(){
 			
-		Digraph myDigraph = new Digraph(8);
+		Digraph myDigraph = new Digraph(8,0);
 		myDigraph.addEdge(0, 1);                //                             0       
 		myDigraph.addEdge(0, 2);                //                          /  |  \                    
 		myDigraph.addEdge(0, 3);                //                         /   |   \
