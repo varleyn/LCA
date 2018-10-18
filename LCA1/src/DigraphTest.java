@@ -269,7 +269,7 @@ public class DigraphTest {
 		 * DAG Test 1
 		 */
 		@Test
-		public void initialDAGTest(){
+		public void DAGTest1(){
 			
 		Digraph myDigraph = new Digraph(8,0);
 		myDigraph.addEdge(0, 1);                //                             0       
@@ -292,4 +292,85 @@ public class DigraphTest {
 		
 		
 	   }
+		
+		
+	   /*
+	    * DAG Test 2
+	    *      digraph with edges 0->1 0->2 0->3 3->4 and root 0
+	    *         find LCA(4,2); should be 0
+	    */
+		public void DAGTest2(){
+		  Digraph myDigraph = new Digraph(5,0);
+		  myDigraph.addEdge(0,1);
+		  myDigraph.addEdge(0,2);
+		  myDigraph.addEdge(0,3);
+		  myDigraph.addEdge(3,4);
+		  
+		  int result = myDigraph.lca(4, 2);
+		  assertEquals(0, result); 
+		
+		}
+		
+		
+		/*
+		    * DAG Test 3
+		    *      digraph with edges 0->2 0->1 1->2 and root 0
+		    *         find LCA(1,2); should be 1
+		    *         
+		    *      Note: One might think LCA(1,2) = 0 here since 0
+		    *            is a parent of both nodes. However, 1 is
+		    *            also an ancestor of both these nodes and 
+		    *            has greater height so it is the lca
+		    */
+			public void DAGTest3(){
+			  Digraph myDigraph = new Digraph(3,0);
+			  myDigraph.addEdge(0,2);
+			  myDigraph.addEdge(0,1);
+			  myDigraph.addEdge(1,2);
+			  
+			  int result = myDigraph.lca(1, 2);
+			  assertEquals(0, result); 
+			  
+			  int result2 = myDigraph.lca(2, 1);
+			  assertEquals(0, result2); 
+			
+			}
+			
+			
+			
+			/*
+			 * DAG Test 4
+			 */
+			@Test
+			public void DAGTest4(){
+				
+			Digraph myDigraph = new Digraph(8,0);
+			myDigraph.addEdge(0, 5);
+			myDigraph.addEdge(0, 1);                //          ------------------ 0       
+			myDigraph.addEdge(0, 2);                //          |               /  |  \                    
+			myDigraph.addEdge(0, 3);                //          |              /   |   \
+			myDigraph.addEdge(1, 4);                //          |             /    |    \       
+			myDigraph.addEdge(2, 4);                //          |            /     |     \             
+			myDigraph.addEdge(3, 4);                //          |           1      2      3          
+			myDigraph.addEdge(4, 5);                //          |            \     |     /  
+			myDigraph.addEdge(4, 6);                //          |             \    |    /         
+			myDigraph.addEdge(4, 7);                //          |              \   |   /
+	                                                //          |               \  |  /
+			                                        //          |                \ | /
+			                                        //          |                  4
+		    int result = myDigraph.lca(5, 2);       //          |                / | \
+		    assertEquals(5, result);                //          |               /  |  \
+			                                        //          |              /   |   \
+			                                        //          |             /    |    \
+			                                        //          |-------------5    6     7
+			                                                     
+			
+		   }
+			
+		
+		
+		
+		
+		
+		
 }		
