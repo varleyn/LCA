@@ -134,9 +134,13 @@ public class Digraph {
 		
 		Vector<Ancestor> ancestors = new Vector<Ancestor>();
 		
+		int depthOfV = getParentGreatestDepth(v) + 1;
+		ancestors.add(new Ancestor(v, depthOfV));     //add v to ancestors as v is an ancestor of itself
+		
 		return findAncestors_helper(ancestors, v);
 
 	}
+	
 	
     private Vector<Ancestor> findAncestors_helper(Vector<Ancestor> ancestors, int v){
     	
@@ -153,7 +157,20 @@ public class Digraph {
 
 	}
 	
-
+    
+    /*
+     * returns the depth of the parent(s) of vertex v with greatest depth 
+     */
+    public int getParentGreatestDepth(int v){
+    	
+    	int deepest = -1;
+    	
+    	for(Ancestor parent: parents(v)){
+    		if(parent.depth > deepest)  deepest = parent.depth;
+    	}
+    	
+    	return deepest;
+    }
 	
 	
 	

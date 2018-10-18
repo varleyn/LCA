@@ -175,19 +175,6 @@ public class DigraphTest {
 		
 		
 		
-		/*
-		 * Binary Tree Test 7
-		 * Tests case where the binary tree root passed to lca method is null
-		 * Should return null.
-		 */
-		@Test
-		public void nullTree(){
-			
-			Digraph myDigraph = null;
-			int result = myDigraph.lca(2,3);
-			assertEquals(-1, result);
-		}
-		
 		
 		
 		
