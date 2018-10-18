@@ -103,6 +103,8 @@ public class Digraph {
 	
 	public int lca(int v1, int v2){
 		
+		if( (v1 < 0) || (v1 >= V) || (v2 < 0) || (v2 >= V) ) return -1;  //v1 or v2 outside bounds of array representing graph
+		
 		getParents();
 		
 		Vector<Ancestor> ancestorsV1 = findAncestors(v1);
