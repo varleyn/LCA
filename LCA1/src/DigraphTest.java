@@ -1,5 +1,8 @@
 import static org.junit.Assert.*;
 
+import java.util.Collections;
+import java.util.Vector;
+
 import org.junit.Test;
 
 
@@ -63,7 +66,7 @@ public class DigraphTest {
 			
 	        int result = myDigraph.lca(6,5);
 	      
-	        assertEquals(null,result);
+	        assertEquals(-1,result);
 			
 		}
 		
@@ -91,7 +94,7 @@ public class DigraphTest {
 			
 			int result = myDigraph.lca(1, 6);
 			
-			assertEquals(null,result);
+			assertEquals(-1,result);
 		}
 		
 		
@@ -120,7 +123,7 @@ public class DigraphTest {
 			
 			int result = myDigraph.lca(5, 6);
 			
-			assertEquals(null,result);
+			assertEquals(-1,result);
 		}
 		
 		
@@ -182,86 +185,9 @@ public class DigraphTest {
 			
 			Digraph myDigraph = null;
 			int result = myDigraph.lca(2,3);
-			assertEquals(null, result);
+			assertEquals(-1, result);
 		}
 		
-		
-		/*
-		 * Binary Tree Test 8
-		 * Tests case where first node passed to lca method is null.
-		 * Should return null.
-		 */
-		@Test
-		public void firstNodeIsNull(){
-			
-			Digraph myDigraph = new Digraph(4,0);
-			myDigraph.addEdge(0, 1);   //                            
-			myDigraph.addEdge(0, 2);   //                   0                              
-			myDigraph.addEdge(1, 3);   //                 /   \ 
-			                           //                /     \
-			                           //               /       \
-		                                   //              1         2
-			                           //               \         
-			                           //                \         
-			                           //                 3 
-			
-			int result = myDigraph.lca(null, 2);
-			assertEquals(null, result);
-		}
-		
-		
-		
-		/*
-		 * Binary Tree Test 9
-		 * Tests case where second node passed to lca method is null.
-		 * Should return null.
-		 */
-		@Test
-		public void secondNodeIsNull(){
-			
-			Digraph myDigraph = new Digraph(4,0);
-			myDigraph.addEdge(0, 1);   //                            
-			myDigraph.addEdge(0, 2);   //                   0                              
-			myDigraph.addEdge(1, 3);   //                 /   \ 
-			                           //                /     \
-			                           //               /       \
-			                           //              1         2
-			                           //               \         
-			                           //                \         
-			                           //                 3 
-			
-			int result = myDigraph.lca(3, null);
-			assertEquals(null, result);
-			
-			
-		}
-		
-		
-		
-		/*
-		 * Binary Tree Test 10
-		 * Test case where both nodes passed to lca method are null.
-		 * Should return null.
-		 */
-		@Test
-		public void bothNodesNull(){
-			
-			Digraph myDigraph = new Digraph(4,0);
-			myDigraph.addEdge(0, 1);   //                            
-			myDigraph.addEdge(0, 2);   //                   0                              
-			myDigraph.addEdge(1, 3);   //                 /   \ 
-			                           //                /     \
-			                           //               /       \
-		                                   //              1         2
-			                           //               \         
-			                           //                \         
-			                           //                 3 
-			
-			int result = myDigraph.lca(null, null);
-			assertEquals(null, result);
-			
-			
-		}
 		
 		
 		
@@ -299,6 +225,7 @@ public class DigraphTest {
 	    *      digraph with edges 0->1 0->2 0->3 3->4 and root 0
 	    *         find LCA(4,2); should be 0
 	    */
+		@Test
 		public void DAGTest2(){
 		  Digraph myDigraph = new Digraph(5,0);
 		  myDigraph.addEdge(0,1);
@@ -322,6 +249,7 @@ public class DigraphTest {
 		    *            also an ancestor of both these nodes and 
 		    *            has greater height so it is the lca
 		    */
+		    @Test
 			public void DAGTest3(){
 			  Digraph myDigraph = new Digraph(3,0);
 			  myDigraph.addEdge(0,2);
