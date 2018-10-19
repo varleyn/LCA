@@ -423,7 +423,22 @@ public class DigraphTest {
 		
 		
 		
-			
+			/*
+			 * Digraph constructor test: Tests what happens when we try to create
+			 *  a new Digraph with V (= no. of vertices) < 0
+			 *                            
+			 */
+			@Test
+			public void digraphConstructorTest2(){
+				
+			    try{
+				  Digraph myDigraph = new Digraph(-2,3);
+			    }
+			    catch ( IllegalArgumentException e ){
+			    	System.out.println("number of vertices must be >= 0");
+			    }
+				
+			}
 		
 		
 		

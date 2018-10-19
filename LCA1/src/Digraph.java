@@ -1,6 +1,6 @@
 /*
  * Definition of LCA in a DAG:
- *                                Define the height of a vertex v in a DAG to be the length of the longest path from
+ *                                Define the height (or depth) of a vertex v in a DAG to be the length of the longest path from
  *                                the root to v. Among the vertices that are common ancestors of v and w, the one 
  *                                with the greatest height is the LCA of v and w.   
  *                                
@@ -21,7 +21,8 @@
  *              3. Now, you have two vectors storing the ancestors of x and y respectively along with their depth.
  *                 Sort the vectors in decreasing order of their depths and find out the LCA.                                                                    
  *                                
- *                                
+ * Note: This is an inefficient algorithm. A more efficient implementation should be used if input sizes will
+ *       be large.                               
  */
 import java.util.*;
 import java.io.*;
@@ -40,6 +41,7 @@ public class Digraph {
 	/*@throws IllegalArgument Exception when root out of range */
 	public Digraph(int V, int root) throws IllegalArgumentException
 	{
+	  if(V < 0) throw new IllegalArgumentException("number of vertices must be >= 0");
 	  if(root < 0 || root >= V) throw new IllegalArgumentException("root must be within range of digraph");
 		  
 	  this.root = root;
@@ -67,6 +69,34 @@ public class Digraph {
 	  else{
 		  System.out.println("Warning: Cannot add edge; vertices out of range");
 	  }
+	}
+	
+	
+	
+	
+	public int lca(int v1, int v2)
+	{	
+		if( (v1 < 0) || (v1 >= V) || (v2 < 0) || (v2 >= V) ) return -1;  //v1 or v2 outside bounds of array representing graph
+		
+		getParents();
+		
+		Vector<Ancestor> ancestorsV1 = findAncestors(v1);
+		Collections.sort(ancestorsV1);
+		
+		Vector<Ancestor> ancestorsV2 = findAncestors(v2);
+		Collections.sort(ancestorsV2);
+		
+		for( Ancestor a: ancestorsV1 ){
+			
+			for(Ancestor b: ancestorsV2){
+				if(a.vertexNo == b.vertexNo){
+					return a.vertexNo;
+				}
+			}
+		}
+		
+		return -1;
+		
 	}
 	
 	
@@ -99,30 +129,6 @@ public class Digraph {
 	}
 	
 	
-	public int lca(int v1, int v2){
-		
-		if( (v1 < 0) || (v1 >= V) || (v2 < 0) || (v2 >= V) ) return -1;  //v1 or v2 outside bounds of array representing graph
-		
-		getParents();
-		
-		Vector<Ancestor> ancestorsV1 = findAncestors(v1);
-		Collections.sort(ancestorsV1);
-		
-		Vector<Ancestor> ancestorsV2 = findAncestors(v2);
-		Collections.sort(ancestorsV2);
-		
-		for( Ancestor a: ancestorsV1 ){
-			
-			for(Ancestor b: ancestorsV2){
-				if(a.vertexNo == b.vertexNo){
-					return a.vertexNo;
-				}
-			}
-		}
-		
-		return -1;
-		
-	}
 	
 	
 	/*
