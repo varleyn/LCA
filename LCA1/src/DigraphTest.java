@@ -244,10 +244,10 @@ public class DigraphTest {
 			  myDigraph.addEdge(1,2);
 			  
 			  int result = myDigraph.lca(1, 2);
-			  assertEquals(0, result); 
+			  assertEquals(1, result); 
 			  
 			  int result2 = myDigraph.lca(2, 1);
-			  assertEquals(0, result2); 
+			  assertEquals(1, result2); 
 			
 			}
 			
