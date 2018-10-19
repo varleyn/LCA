@@ -317,7 +317,7 @@ public class DigraphTest {
 			
 			
 		   /*
-		    * DAG Test6
+		    * DAG Test 6
 		    * 
 		    * Digraph 0->1 0->2 1->3 1->4 2->3 2->4 with root 0
 		    * In this case, LCA(3,4) is both 1 and 2 as both of 
@@ -340,6 +340,55 @@ public class DigraphTest {
 		    assertTrue( result == 1 | result == 2 );
 			
 			}
+			
+			
+			/*
+			 * DAG Test 7
+			 * 
+			 * Digraph with vertices 0,1,2,3 and edges 0->1 0->2
+			 * The vertex 3 is not connected to any other vertex here 
+			 * LCA(1,3) therefore does not exist
+			 * 
+			 * Here we will expect -1 to be returned.
+			 */
+			@Test
+			public void noLCAUnconnectedGraph(){
+					
+				Digraph myDigraph = new Digraph(4,0);
+				myDigraph.addEdge(0, 1);
+				myDigraph.addEdge(0, 2);
+				
+				
+				int result = myDigraph.lca(1, 3);	
+			    assertEquals(-1, result);
+				
+			}
+			
+			
+			
+			/*
+			 * DAG Test 8
+			 * 
+			 * Digraph with vertices 0,1,2,3 and edges 0->1 0->2 3->2 
+			 * LCA(2,3) does not exist here as there is no 
+			 * path between these vertices.
+			 * 
+			 * We will expect -1 to be returned.
+			 */
+			@Test
+			public void noLCAConnectedGraph(){
+					
+				Digraph myDigraph = new Digraph(4,0);
+				myDigraph.addEdge(0, 1);
+				myDigraph.addEdge(0, 2);
+				myDigraph.addEdge(3, 2);
+				
+				
+				int result = myDigraph.lca(2, 3);	
+			    assertEquals(-1, result);
+				
+			}
+		
 		
 		
 			
