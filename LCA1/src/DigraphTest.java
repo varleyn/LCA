@@ -388,6 +388,20 @@ public class DigraphTest {
 			    assertEquals(-1, result);
 				
 			}
+			
+			
+			/*
+			 * addEdge method test:  Test what happens when we try to add an
+			 *                       edge between vertices that do not exist
+			 *                       in the graph 
+			 */
+			@Test
+			public void addEdgeTest(){
+				
+				Digraph myDigraph = new Digraph(2,0);
+				myDigraph.addEdge(3, 4);
+				
+			}
 		
 		
 		

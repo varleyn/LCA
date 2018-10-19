@@ -23,13 +23,6 @@
  *                                
  *                                
  */
-
-
-
-
-
-
-
 import java.util.*;
 
 /*An instance of Digraph represents a directed graph. 
@@ -67,14 +60,9 @@ public class Digraph {
 	}
 	
 	
-	/*returns the children of vertex v */
-	public Iterable<Integer> children(int v)
-	{ 
-	  return children[v]; 
-	}
 	
 	/*returns the parents of vertex v */
-	public Iterable<Ancestor> parents(int v)
+	private Iterable<Ancestor> parents(int v)
 	{ 
 	  return parents[v]; 
 	}
@@ -85,7 +73,7 @@ public class Digraph {
 	 * children array) creates a corresponding link from child to parent (in the
 	 * parents array 
 	 */
-	public void getParents(){
+	private void getParents(){
 		getParents_helper(root,0);
 	}
 	
@@ -130,7 +118,7 @@ public class Digraph {
 	/*
 	 * Returns all the ancestors of a given vertex along with their depths
 	 */
-	public Vector<Ancestor> findAncestors(int v){
+	private Vector<Ancestor> findAncestors(int v){
 		
 		Vector<Ancestor> ancestors = new Vector<Ancestor>();
 		
@@ -161,7 +149,7 @@ public class Digraph {
     /*
      * returns the depth of the parent(s) of vertex v with greatest depth 
      */
-    public int getParentGreatestDepth(int v){
+    private int getParentGreatestDepth(int v){
     	
     	int deepest = -1;
     	
@@ -174,44 +162,7 @@ public class Digraph {
 	
 	
 	
-	public String toString()
-	{
-	  String rtrn = "";
-	  
-	  for (int v = 0; v < V; v++){
-		  
-		rtrn = rtrn + "Children " + v + ": ";  
-		
-		for (Integer i: children(v)){
-			
-			rtrn = rtrn + i + " ";
-		}
-		
-		rtrn = rtrn + "\n";
-	  }
-	  
-	  return rtrn;
-	}
 	
-	
-	public String showParents()
-	{
-	  String rtrn = "";
-	  
-	  for (int v = 0; v < V; v++){
-		  
-		rtrn = rtrn + "Parents " + v + ": ";  
-		
-		for (Ancestor p: parents(v)){
-			
-			rtrn = rtrn + p.vertexNo + " depth: " + p.depth + "\n";
-		}
-		
-		rtrn = rtrn + "\n";
-	  }
-	  
-	  return rtrn;
-	}
 
 }
 
