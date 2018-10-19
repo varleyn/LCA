@@ -56,7 +56,13 @@ public class Digraph {
 	/*add edge v->w */
 	public void addEdge(int v, int w)
 	{
-	  children[v].add(w);
+	  if(v >= 0 && v < V && w >= 0 && w < V ){ //v and w must both be within range of digraph
+	    children[v].add(w);
+	  }
+	  
+	  else{
+		  System.out.println("Warning: Cannot add edge; vertices out of range");
+	  }
 	}
 	
 	
