@@ -314,6 +314,32 @@ public class DigraphTest {
 		                                            //                    8      9
 		    
 		   }
+			
+			
+		   /*
+		    * DAG Test6
+		    * 
+		    * Digraph 0->1 0->2 1->3 1->4 2->3 2->4 with root 0
+		    * In this case, LCA(3,4) is both 1 and 2 as both of 
+		    * these are common ancestors at the same height.
+		    * 
+		    * Here we will accept either one of these LCAs.
+		    */
+			@Test
+			public void multipleLCAsTest(){
+				
+			Digraph myDigraph = new Digraph(5,0);
+			myDigraph.addEdge(0, 1);
+			myDigraph.addEdge(0, 2);
+			myDigraph.addEdge(1, 3);
+			myDigraph.addEdge(1, 4);
+			myDigraph.addEdge(2, 3);
+			myDigraph.addEdge(2, 4);
+			
+			int result = myDigraph.lca(3, 4);	
+		    assertTrue( result == 1 | result == 2 );
+			
+			}
 		
 		
 			
