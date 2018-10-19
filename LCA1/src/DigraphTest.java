@@ -274,7 +274,7 @@ public class DigraphTest {
 			                                        //          |                \ | /
 			                                        //          |                  4
 		    int result = myDigraph.lca(5, 2);       //          |                / | \
-		    assertEquals(5, result);                //          |               /  |  \
+		    assertEquals(2, result);                //          |               /  |  \
 			                                        //          |              /   |   \
 			                                        //          |             /    |    \
 			                                        //          |-------------5    6     7
