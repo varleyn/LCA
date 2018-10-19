@@ -18,7 +18,7 @@ public class DigraphTest {
 		@Test
 		public void bothNodesPresentTest() {
 			
-			Digraph myDigraph = new Digraph(7,0);   //                   0         
+			Digraph myDigraph = new Digraph(7,0); //                   0         
 			myDigraph.addEdge(0, 1);              //                 /   \               
 			myDigraph.addEdge(0, 2);              //                /     \
 			myDigraph.addEdge(1, 3);              //               /       \
@@ -136,7 +136,7 @@ public class DigraphTest {
 		@Test
 		public void oneNodeIsRoot(){
 			
-			Digraph myDigraph = new Digraph(2,0);  //           0                                              
+			Digraph myDigraph = new Digraph(2,0);//           0                                              
 			myDigraph.addEdge(0, 1);             //            \               
 			                                     //             \
 	                                                    //               \
@@ -194,11 +194,11 @@ public class DigraphTest {
 		myDigraph.addEdge(4, 5);                //                      \      |     /  
 		myDigraph.addEdge(4, 6);                //                       \     |    /         
 		myDigraph.addEdge(4, 7);                //                        \    |   /
-                                                //                         \   |  /
+                                                        //                         \   |  /
 		                                        //                          \  | /
 		                                        //                             4
-	    int result = myDigraph.lca(1, 7);       //                           / | \
-	    assertEquals(1, result);                //                          /  |  \
+	    int result = myDigraph.lca(1, 7);           //                           / | \
+	    assertEquals(1, result);                    //                          /  |  \
 		                                        //                         /   |   \
 		                                        //                        /    |    \
 		                                        //                       5     6     7
@@ -270,11 +270,11 @@ public class DigraphTest {
 			myDigraph.addEdge(4, 5);                //          |            \     |     /  
 			myDigraph.addEdge(4, 6);                //          |             \    |    /         
 			myDigraph.addEdge(4, 7);                //          |              \   |   /
-	                                                //          |               \  |  /
+	                                                        //          |               \  |  /
 			                                        //          |                \ | /
 			                                        //          |                  4
-		    int result = myDigraph.lca(5, 2);       //          |                / | \
-		    assertEquals(2, result);                //          |               /  |  \
+		    int result = myDigraph.lca(5, 2);           //          |                / | \
+		    assertEquals(2, result);                    //          |               /  |  \
 			                                        //          |              /   |   \
 			                                        //          |             /    |    \
 			                                        //          |-------------5    6     7
@@ -304,14 +304,14 @@ public class DigraphTest {
 			myDigraph.addEdge(4, 7);                //          |               \  |  /
 			myDigraph.addEdge(5, 8);                //          |                \ | /
 			myDigraph.addEdge(5, 9);                //          |                  4
-		                                            //          |                / | \
-		                                            //          |               /  |  \
+		                                                //          |                / | \
+		                                                //          |               /  |  \
 			                                        //          |              /   |   \
 			int result = myDigraph.lca(8, 9);       //          |             /    |    \
-		    assertEquals(5, result);                //          |-------------5    6     7
+		    assertEquals(5, result);                    //          |-------------5    6     7
 			                                        //                      /  \             
 			                                        //                     /    \    
-		                                            //                    8      9
+		                                                //                    8      9
 		    
 		   }
 			
