@@ -391,7 +391,7 @@ public class DigraphTest {
 			
 			
 			/*
-			 * addEdge method test:  Test what happens when we try to add an
+			 * addEdge method test:  Tests what happens when we try to add an
 			 *                       edge between vertices that do not exist
 			 *                       in the graph 
 			 */
@@ -400,6 +400,24 @@ public class DigraphTest {
 				
 				Digraph myDigraph = new Digraph(2,0);
 				myDigraph.addEdge(3, 4);
+				
+			}
+			
+			
+			/*
+			 * Digraph constructor test: Tests what happens when we try to create
+			 *                           a new Digraph whose root is out of range
+			 *                           in the graph 
+			 */
+			@Test
+			public void digraphConstructorTest(){
+				
+			    try{
+				  Digraph myDigraph = new Digraph(2,3);
+			    }
+			    catch ( IllegalArgumentException e ){
+			    	System.out.println("root out of range");
+			    }
 				
 			}
 		

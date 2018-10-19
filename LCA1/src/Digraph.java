@@ -24,6 +24,7 @@
  *                                
  */
 import java.util.*;
+import java.io.*;
 
 /*An instance of Digraph represents a directed graph. 
  * The graph is represented here by an array of sets containing
@@ -36,8 +37,11 @@ public class Digraph {
 	private final Set<Integer>[] children;   //e.g. children[v] is the set of vertex v's children
 	private final Set<Ancestor>[] parents;     //e.g. parent[v] is the set of vertex v's parents
 	
-	public Digraph(int V, int root)
+	/*@throws IllegalArgument Exception when root out of range */
+	public Digraph(int V, int root) throws IllegalArgumentException
 	{
+	  if(root < 0 || root >= V) throw new IllegalArgumentException("root must be within range of digraph");
+		  
 	  this.root = root;
 	  this.V = V;
 	  
@@ -140,7 +144,6 @@ public class Digraph {
     	
 		for(Ancestor p: parents(v)){
 			ancestors.add(p);
-			System.out.println("ADDED" + p.vertexNo + ":" + p.depth);
 		}
 		
 		for(Ancestor p: parents(v)){
